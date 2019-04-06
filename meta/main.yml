@@ -1,0 +1,33 @@
+galaxy_info:
+  author: Tom Gamull
+  description: Installs minishift
+  company: NGINX
+  license: Apache v2
+  min_ansible_version: 2.5
+  platforms:
+  - name: MacOSX
+    versions:
+    - 10.12
+    - 10.13
+    - 10.14
+  - name: Fedora
+    versions:
+    - 23
+    - 24
+    - 25
+  - name: Ubuntu
+    versions:
+    - bionic
+    - cosmic
+    - xenial
+  - name: EL
+    versions:
+    - 7
+  galaxy_tags:
+  - oc
+  - openshift
+  - container
+  - cluster
+  - minishift
+dependencies: []
+allow_duplicates: yes
