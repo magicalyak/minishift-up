@@ -32,6 +32,7 @@ After the role executes, and minishift is running, you will be able to access th
 - Ansible 2.4+
 - Prior to running the role, clear your terminal session of any DOCKER* environment variables.
 - sudo access is required for installing packages
+- git (if using community addons)
 
 ### OSX
 
@@ -152,7 +153,7 @@ $ ansible-playbook -i inventory --ask-become-pass minishift-up.yml
 
 ## Dependencies
 
-none
+git (if using community addons)
 
 ## License
 

@@ -1,0 +1,28 @@
+- name: Install minishift addons
+  command: "minishift addons install {{ item }}"
+  when: minishift_addons['item']
+  with_items:
+    - anyuid
+    - xpaas
+    - che
+    - prometheus
+
+- name: Install minishift admin-user addon
+  command: "minishift addons install admin-user"
+  when: minishift_addons['admin_user']
+
+- name: Install minishift registry-route addon
+  command: "minishift addons install registry-route"
+  when: minishift_addons['registry_route']
+
+- name: Install minishift htpasswd-identity-provider addon
+  command: "minishift addons install htpasswd-identity-provider"
+  when: minishift_addons['htpasswd_identity_provider']
+
+- name: Install minishift admissions-webhook addon
+  command: "minishift addons install admissions-webhook"
+  when: minishift_addons['admissions_webhook']
+
+- name: Install minishift redhat-registry-logon addon
+  command: "minishift addons install redhat-registry-logon"
+  when: minishift_addons['redhat_registry_logon']
