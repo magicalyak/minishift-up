@@ -27,3 +27,26 @@
 - name: Install minishift community eap-cd addon
   command: "minishift addons install {{ git_addons.git_dir_now }}/eap-cd/eap-cd.addon"
   when: minishift_addons_community['eap_cd']
+
+- name: Enable minishift community addons
+  command: "minishift addons enable {{ item }}"
+  when: minishift_addons_community['item']
+  with_items:
+    - dotnet
+    - example
+    - grafana
+    - helm
+    - istio
+    - workshop
+
+- name: Enable minishift community ansible-server-broker addon
+  command: "minishift addons enable ansible-server-broker"
+  when: minishift_addons_community['ansible_server_broker']
+
+- name: Enable minishift community management-infra addon
+  command: "minishift addons enable management-infra"
+  when: minishift_addons_community['management_infra']
+
+- name: Enable minishift community eap-cd addon
+  command: "minishift addons enable eap-cd"
+  when: minishift_addons_community['eap_cd']

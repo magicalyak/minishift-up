@@ -45,5 +45,3 @@ minishift_addons_community:
   - management_infra: no
   - workshop: no
   - eap_cd: no
-
-
