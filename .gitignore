@@ -1,8 +1,3 @@
-# Any private crt and keys #
-############################
-*.crt
-*.key
-
 .idea
 
 # Ignore MacOS system files
