@@ -30,6 +30,8 @@ minishift_addons:
   - prometheus: no
   # Admin user should always be yes (grants cluster-admin role)
   - admin_user: yes
+  # Ansible AWX is experimental and likely will break things
+  - awx: no
 
 minishift_addons_community_enable: no
 # Below are only enabled if minishift_addons_community_enable=yes

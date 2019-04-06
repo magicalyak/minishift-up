@@ -110,6 +110,18 @@ When the Minishift VM is started, the /Users volume will be mounted to the VM. T
 
 > For MaxOSX you can "try to" use hyperkit instad of xhyve by setting this to yes
 
+**minishift_addons_enable** no
+
+> To use addons set to yes
+
+**minishift_addons_community_enable** no
+
+> To use community addons set to yes and set path
+
+**minishift_addons_community_path** $HOME\Downloads\git
+
+> Set this to the community addons path you'll install to (must exist)
+
 ## Example Playbook
 
 Below is a sample playbook that includes all of the default parameters. You'll find this exact example in the root of the project tree.
@@ -133,6 +145,29 @@ Below is a sample playbook that includes all of the default parameters. You'll f
       openshift_client_dest: /usr/local/bin
       openshift_force_client_copy: yes
       use_hyperkit: no
+      minishift_addons_enable: no
+      minishift_addons:
+        - anyuid: no
+        - registry_route: no
+        - admissions_webhooks: no
+        - htpasswd_identity_provider: no
+        - xpaas: no
+        - redhat_registry_logon: no
+        - che: no
+        - prometheus: no
+        - admin_user: yes
+      minishift_addons_community_enable: no
+      minishift_addons_community_path: $HOME/Downloads/git
+      minishift_addons_community:
+        - ansible_server_broker: no
+        - dotnet: no
+        - example: no
+        - grafana: no
+        - helm: no
+        - istio: no
+        - management_infra: no
+        - workshop: no
+        - eap_cd: no
 ```
 
 After you install the role, copy *minishift-nginx.yml* to your project directory, and execute it with the `--ask-become-pass` option. For example:

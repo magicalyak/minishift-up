@@ -17,7 +17,7 @@
       openshift_force_client_copy: yes
       use_hyperkit: false
       minishift_addons_enable: no
-      minishift_addons: 
+      minishift_addons:
         - anyuid: no
         - registry_route: no
         - admissions_webhooks: no
