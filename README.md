@@ -40,7 +40,7 @@ After the role executes, and minishift is running, you will be able to access th
 
 #### Mounting /Users to the Minishift VM
 
-When the Minishift VM is started, the /Users volume will be mounted to the VM. This is done by setting the environment variable `XHYVE_VIRTIO_9P=true`. The variable is set temporarily during the :q
+When the Minishift VM is started, the /Users volume will be mounted to the VM. This is done by setting the environment variable `XHYVE_VIRTIO_9P=true`.
 
 ## Linux
 
