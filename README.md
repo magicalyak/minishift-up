@@ -148,27 +148,28 @@ Below is a sample playbook that includes all of the default parameters. You'll f
       use_hyperkit: no
       minishift_addons_enable: no
       minishift_addons:
-        - anyuid: no
-        - registry_route: no
-        - admissions_webhooks: no
-        - htpasswd_identity_provider: no
-        - xpaas: no
-        - redhat_registry_logon: no
-        - che: no
-        - prometheus: no
-        - admin_user: yes
+      minishift_addons:
+        anyuid: no
+        registry_route: no
+        admissions_webhooks: no
+        htpasswd_identity_provider: no
+        xpaas: no
+        redhat_registry_logon: no
+        che: no
+        prometheus: no
+        admin_user: yes
       minishift_addons_community_enable: no
       minishift_addons_community_path: $HOME/Downloads/git
       minishift_addons_community:
-        - ansible_server_broker: no
-        - dotnet: no
-        - example: no
-        - grafana: no
-        - helm: no
-        - istio: no
-        - management_infra: no
-        - workshop: no
-        - eap_cd: no
+        ansible_server_broker: no
+        dotnet: no
+        example: no
+        grafana: no
+        helm: no
+        istio: no
+        management_infra: no
+        workshop: no
+        eap_cd: no
 ```
 
 After you install the role, copy *minishift-nginx.yml* to your project directory, and execute it with the `--ask-become-pass` option. For example:

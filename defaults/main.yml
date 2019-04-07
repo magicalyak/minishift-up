@@ -1,49 +1,49 @@
 ---
-minishift_repo: minishift/minishift 
+minishift_repo: minishift/minishift
 minishift_github_url: https://api.github.com/repos
 minishift_release_tag_name: ""
 minishift_force_install: yes
 minishift_restart: yes
-minishift_delete: yes 
+minishift_delete: yes
 minishift_start_options: ['--memory', '4GB', '--cpus', '2']
-minishift_dest: /usr/local/bin  
+minishift_dest: /usr/local/bin
 openshift_client_dest: /usr/local/bin
-openshift_force_client_copy: yes 
+openshift_force_client_copy: yes
 
 # For MacOSX we can try to use hyperkit instead
 use_hyperkit: no
 
 minishift_addons_enable: no
 # Below only works if minishift_addons_enable=yes
-minishift_addons: 
+minishift_addons:
   # Changes the default security context constraints to allow pods to run with arbitrary UID.
-  - anyuid: no
+  anyuid: no
   # Creates an edge terminated route for the OpenShift registry.
-  - registry_route: no
+  registry_route: no
   # Enables validating and mutating admission webhooks.
-  - admissions_webhooks: no
-  - htpasswd_identity_provider: no
-  - xpaas: no
-  - redhat_registry_logon: no
+  admissions_webhooks: no
+  htpasswd_identity_provider: no
+  xpaas: no
+  redhat_registry_logon: no
       # Installs che IDE on Minishift
-  - che: no
-  - prometheus: no
+  che: no
+  prometheus: no
   # Admin user should always be yes (grants cluster-admin role)
-  - admin_user: yes
+  admin_user: yes
   # Ansible AWX is experimental and likely will break things
-  - awx: no
+  awx: no
 
 minishift_addons_community_enable: no
 # Below are only enabled if minishift_addons_community_enable=yes
 # Needs to refer to a directory that is created already for the addons from github
 minishift_addons_community_path: $HOME/Downloads/git
 minishift_addons_community:
-  - ansible_server_broker: no
-  - dotnet: no
-  - example: no
-  - grafana: no
-  - helm: no
-  - istio: no
-  - management_infra: no
-  - workshop: no
-  - eap_cd: no
+  ansible_server_broker: no
+  dotnet: no
+  example: no
+  grafana: no
+  helm: no
+  istio: no
+  management_infra: no
+  workshop: no
+  eap_cd: no

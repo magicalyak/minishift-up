@@ -18,24 +18,24 @@
       use_hyperkit: false
       minishift_addons_enable: no
       minishift_addons:
-        - anyuid: no
-        - registry_route: no
-        - admissions_webhooks: no
-        - htpasswd_identity_provider: no
-        - xpaas: no
-        - redhat_registry_logon: no
-        - che: no
-        - prometheus: no
-        - admin_user: yes
+        anyuid: no
+        registry_route: no
+        admissions_webhooks: no
+        htpasswd_identity_provider: no
+        xpaas: no
+        redhat_registry_logon: no
+        che: no
+        prometheus: no
+        admin_user: yes
       minishift_addons_community_enable: no
       minishift_addons_community_path: $HOME/Downloads/git
       minishift_addons_community:
-        - ansible_server_broker: no
-        - dotnet: no
-        - example: no
-        - grafana: no
-        - helm: no
-        - istio: no
-        - management_infra: no
-        - workshop: no
-        - eap_cd: no
+        ansible_server_broker: no
+        dotnet: no
+        example: no
+        grafana: no
+        helm: no
+        istio: no
+        management_infra: no
+        workshop: no
+        eap_cd: no

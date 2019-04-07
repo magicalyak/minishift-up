@@ -1,3 +1,16 @@
+- name: debug addons
+  debug:
+    msg: "Variable is : {{ minishift_addons['anyuid'] }}"
+
+- name: "Install minishift {{item}} addon"
+  command: "minishift addons install {{ item }}"
+  when: minishift_addons['item']
+  with_items:
+    - anyuid
+    - xpaas
+    - che
+    - prometheus
+
 - name: Install minishift anyuid addon
   command: "minishift addons install anyuid"
   when: minishift_addons['anyuid']
