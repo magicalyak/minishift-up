@@ -161,7 +161,7 @@ Below is a sample playbook that includes all of the default parameters. You'll f
       minishift_addons_community_enable: no
       minishift_addons_community_path: $HOME/Downloads/git
       minishift_addons_community:
-        ansible_server_broker: no
+        ansible_service_broker: no
         dotnet: no
         example: no
         grafana: no

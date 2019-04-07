@@ -38,7 +38,7 @@ minishift_addons_community_enable: no
 # Needs to refer to a directory that is created already for the addons from github
 minishift_addons_community_path: $HOME/Downloads/git
 minishift_addons_community:
-  ansible_server_broker: no
+  ansible_service_broker: no
   dotnet: no
   example: no
   grafana: no

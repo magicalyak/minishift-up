@@ -11,7 +11,7 @@
   when: not git_path.stat.exists
 
 - name: "Install minishift community {{item}} addon"
-  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/{{ item }}"
+  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/add-ons/{{ item }}"
   when: "minishift_addons_community['{{ item }}']"
   with_items:
     - dotnet
@@ -21,16 +21,16 @@
     - istio
     - workshop
 
-- name: Install minishift community ansible-server-broker addon
-  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/ansible-server-broker"
-  when: minishift_addons_community['ansible_server_broker']
+- name: Install minishift community ansible-service-broker addon
+  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/add-ons/ansible-service-broker"
+  when: minishift_addons_community['ansible_service_broker']
 
 - name: Install minishift community management-infra addon
-  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/management-infra"
+  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/add-ons/management-infra"
   when: minishift_addons_community['management_infra']
 
 - name: Install minishift community eap-cd addon
-  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/eap-cd"
+  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/add-ons/eap-cd"
   when: minishift_addons_community['eap_cd']
 
 - name: "Enable minishift community {{item}} addon"
@@ -44,9 +44,9 @@
     - istio
     - workshop
 
-- name: Enable minishift community ansible-server-broker addon
-  command: "minishift addons enable ansible-server-broker"
-  when: minishift_addons_community['ansible_server_broker']
+- name: Enable minishift community ansible-service-broker addon
+  command: "minishift addons enable ansible-service-broker"
+  when: minishift_addons_community['ansible_service_broker']
 
 - name: Enable minishift community management-infra addon
   command: "minishift addons enable management-infra"
