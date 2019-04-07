@@ -40,6 +40,11 @@
     mode: 0775
   become: yes
 
+- name: Set HyperKit driver if set
+  command: "minishift config set vm-driver hyperkit"
+  when:
+    - use_hyperkit
+
 - name: Remove the temp directory
   file:
     path: "{{ temp_output.path }}"

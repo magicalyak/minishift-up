@@ -13,7 +13,7 @@
         name: pv0001
         path: /data/pv0001/
         size: 5Gi
-      minishift_recreate: no
+      minishift_restart: no
       minishift_delete: no
       minishift_start_options:
       - insecure-registry 172.30.0.0/16
