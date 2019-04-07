@@ -115,17 +115,22 @@ When the Minishift VM is started, the /Users volume will be mounted to the VM. T
 
 > To use addons set to yes
 
-**minishift_addons_community_enable** no
+**minishift_addons_community_enable:** no
 
 > To use community addons set to yes and set path
 
-**minishift_addons_community_path** $HOME\Downloads\git
+**minishift_addons_community_path:** $HOME\Downloads\git
 
 > Set this to the community addons path you'll install to (must exist)
 
+**minishift_redhat_login:** '123456|magicalyak'
+**minishift_redhat_password:** 'token_stuff_stuff_token'
+
+> Set this to the redhat container service account username and password
+
 ## Example Playbook
 
-Below is a sample playbook that includes all of the default parameters. You'll find this exact example in the root of the project tree.
+Below is a sample playbook that includes all of the default parameters. You'll find an example of this in the root of the project tree.
 
 ```yaml
 ---

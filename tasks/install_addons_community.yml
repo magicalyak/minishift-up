@@ -11,7 +11,7 @@
   when: not git_path.stat.exists
 
 - name: "Install minishift community {{item}} addon"
-  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/{{ item }}"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/{{ item }} --enable"
   when: "minishift_addons_community['{{ item }}']"
   with_items:
     - dotnet
@@ -20,38 +20,16 @@
     - helm
     - istio
     - workshop
+    - prometheus
 
 - name: Install minishift community ansible-service-broker addon
-  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/ansible-service-broker"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/ansible-service-broker --enable"
   when: minishift_addons_community['ansible_service_broker']
 
 - name: Install minishift community management-infra addon
-  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/management-infra"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/management-infra --enable"
   when: minishift_addons_community['management_infra']
 
 - name: Install minishift community eap-cd addon
-  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/eap-cd"
-  when: minishift_addons_community['eap_cd']
-
-- name: "Enable minishift community {{item}} addon"
-  command: "minishift addons enable {{ item }}"
-  when: "minishift_addons_community['{{ item }}']"
-  with_items:
-    - dotnet
-    - example
-    - grafana
-    - helm
-    - istio
-    - workshop
-
-- name: Enable minishift community ansible-service-broker addon
-  command: "minishift addons enable ansible-service-broker"
-  when: minishift_addons_community['ansible_service_broker']
-
-- name: Enable minishift community management-infra addon
-  command: "minishift addons enable management-infra"
-  when: minishift_addons_community['management_infra']
-
-- name: Enable minishift community eap-cd addon
-  command: "minishift addons enable eap-cd"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/eap-cd --enable"
   when: minishift_addons_community['eap_cd']

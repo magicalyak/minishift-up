@@ -1,0 +1,28 @@
+---
+- name: "Apply minishift {{item}} addon"
+  command: "minishift addons apply {{ item }}"
+  when: "minishift_addons['{{ item }}']"
+  with_items:
+    - anyuid
+    - xpaas
+    - che
+
+- name: Apply minishift admin-user addon
+  command: "minishift addons apply admin-user"
+  when: minishift_addons['admin_user']
+
+- name: Apply minishift registry-route addon
+  command: "minishift addons apply registry-route"
+  when: minishift_addons['registry_route']
+
+- name: Apply minishift htpasswd-identity-provider addon
+  command: "minishift addons apply htpasswd-identity-provider"
+  when: minishift_addons['htpasswd_identity_provider']
+
+- name: Apply minishift admissions-webhook addon
+  command: "minishift addons apply admissions-webhook"
+  when: minishift_addons['admissions_webhook']
+
+- name: Apply minishift redhat-registry-logon addon
+  command: "minishift addons apply --addon-env REGISTRY_USERNAME={{ minishift_redhat_login }} --addon-env REGISTRY_PASSWORD={{ minishift_redhat_password }} redhat-registry-logon"
+  when: minishift_addons['redhat_registry_logon']

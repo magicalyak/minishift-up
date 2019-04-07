@@ -59,8 +59,13 @@
   include_tasks: copy_oc_client.yml
   when: not oc_client.stat.exists or openshift_force_client_copy
 
-#- name: Give cluster-admin to admin
-#  include_tasks: grant_admin.yml
+- name: Give cluster-admin to admin
+  include_tasks: grant_admin.yml
+
+- name: Apply addons
+  include_tasks: apply_addons.yml
+  when:
+    - minishift_addons_enable
 
 - name: Show output
   debug:

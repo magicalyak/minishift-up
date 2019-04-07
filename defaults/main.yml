@@ -27,11 +27,14 @@ minishift_addons:
   redhat_registry_logon: no
       # Installs che IDE on Minishift
   che: no
-  prometheus: no
   # Admin user should always be yes (grants cluster-admin role)
   admin_user: yes
   # Ansible AWX is experimental and likely will break things
   awx: no
+
+# If using redhat_registry_logon - service account for https://access.redhat.com/containers/
+minishift_redhat_login: '1234|magicalyak'
+minishift_redhat_password: 'token_stuff_stuff_token'
 
 minishift_addons_community_enable: no
 # Below are only enabled if minishift_addons_community_enable=yes
@@ -47,3 +50,4 @@ minishift_addons_community:
   management_infra: no
   workshop: no
   eap_cd: no
+  prometheus: no
