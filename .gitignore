@@ -10,3 +10,4 @@
 *.retry
 ansible-lint.txt
 inventory
+test.local.yml

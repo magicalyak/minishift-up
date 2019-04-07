@@ -4,27 +4,27 @@
   gather_facts: yes
   roles:
     - role: minishift-up
-      minishift_repo: minishift/minishift 
+      minishift_repo: minishift/minishift
       minishift_github_url: https://api.github.com/repos
       minishit_release_tag_name: "v1.33.0"
-      minishift_dest: /usr/local/bin  
-      minishift_force_install: no 
+      minishift_dest: /usr/local/bin
+      minishift_force_install: no
       minishift_volume:
         name: pv0001
         path: /data/pv0001/
         size: 5Gi
-      minishift_recreate: no 
-      minishift_delete: no 
+      minishift_recreate: no
+      minishift_delete: no
       minishift_start_options:
       - insecure-registry 172.30.0.0/16
       - insecure-registry minishift
       - iso-url https://github.com/minishift/minishift-centos-iso/releases/download/v1.15.0/minishift-centos7.iso
       openshift_repo: openshift/origin
       openshift_client_dest: /usr/local/bin
-      openshift_force_client_install: no 
+      openshift_force_client_install: no
       use_hyperkit: no
       minishift_addons_enable: no
-      minishift_addons: 
+      minishift_addons:
         - anyuid: no
         - registry_route: no
         - admissions_webhooks: no
