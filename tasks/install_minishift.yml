@@ -26,7 +26,7 @@
 
 - name: Unarchive the archive
   unarchive:
-    src: "{{ temp_output.path.stdout }}/{{ asset_name }}"
+    src: "{{ temp_output.path }}/{{ asset_name }}"
     dest: "{{ temp_output.path }}"
 
 - name: Get the tgz dir name
