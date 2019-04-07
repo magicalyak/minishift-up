@@ -12,7 +12,7 @@
 
 - name: "Install minishift community {{ item }} addon"
   command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/{{ item }} --enable"
-  when: "minishift_addons_community['{{ item }}']"
+  when: minishift_addons_community[item['name'] is defined
   with_items:
     - dotnet
     - example
