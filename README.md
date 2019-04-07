@@ -151,7 +151,7 @@ Below is a sample playbook that includes all of the default parameters. You'll f
       minishift_addons:
         anyuid: no
         registry_route: no
-        admissions_webhooks: no
+        admissions_webhook: no
         htpasswd_identity_provider: no
         xpaas: no
         redhat_registry_logon: no

@@ -21,7 +21,7 @@ minishift_addons:
   # Creates an edge terminated route for the OpenShift registry.
   registry_route: no
   # Enables validating and mutating admission webhooks.
-  admissions_webhooks: no
+  admissions_webhook: no
   htpasswd_identity_provider: no
   xpaas: no
   redhat_registry_logon: no
