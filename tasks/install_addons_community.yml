@@ -5,16 +5,29 @@
     version: master
   register: git_addons
 
-- name: Install minishift community addons
-  command: "minishift addons install {{ git_addons.git_dir_now }}/{{ item }}/{{ item }}.addon"
-  when: minishift_addons_community['item']
-  with_items:
-    - dotnet
-    - example
-    - grafana
-    - helm
-    - istio
-    - workshop
+- name: Install minishift community dotnet addon
+  command: "minishift addons install {{ git_addons.git_dir_now }}/dotnet/dotnet.addon"
+  when: minishift_addons_community['dotnet']
+
+- name: Install minishift community example addon
+  command: "minishift addons install {{ git_addons.git_dir_now }}/example/example.addon"
+  when: minishift_addons_community['example']
+
+- name: Install minishift community grafana addon
+  command: "minishift addons install {{ git_addons.git_dir_now }}/grafana/grafana.addon"
+  when: minishift_addons_community['graphana']
+
+- name: Install minishift community helm addon
+  command: "minishift addons install {{ git_addons.git_dir_now }}/helm/helm.addon"
+  when: minishift_addons_community['helm']
+
+- name: Install minishift community istio addon
+  command: "minishift addons install {{ git_addons.git_dir_now }}/istio/istio.addon"
+  when: minishift_addons_community['istio']
+
+- name: Install minishift community workshop addon
+  command: "minishift addons install {{ git_addons.git_dir_now }}/workshop/workshop.addon"
+  when: minishift_addons_community['workshop']
 
 - name: Install minishift community ansible-server-broker addon
   command: "minishift addons install {{ git_addons.git_dir_now }}/ansible-server-broker/ansible-server-broker.addon"
@@ -28,16 +41,29 @@
   command: "minishift addons install {{ git_addons.git_dir_now }}/eap-cd/eap-cd.addon"
   when: minishift_addons_community['eap_cd']
 
-- name: Enable minishift community addons
-  command: "minishift addons enable {{ item }}"
-  when: minishift_addons_community['item']
-  with_items:
-    - dotnet
-    - example
-    - grafana
-    - helm
-    - istio
-    - workshop
+- name: Enable minishift community dotnet addon
+  command: "minishift addons enable {{ git_addons.git_dir_now }}/dotnet/dotnet.addon"
+  when: minishift_addons_community['dotnet']
+
+- name: Enable minishift community example addon
+  command: "minishift addons enable {{ git_addons.git_dir_now }}/example/example.addon"
+  when: minishift_addons_community['example']
+
+- name: Enable minishift community grafana addon
+  command: "minishift addons enable {{ git_addons.git_dir_now }}/grafana/grafana.addon"
+  when: minishift_addons_community['graphana']
+
+- name: Enable minishift community helm addon
+  command: "minishift addons enable {{ git_addons.git_dir_now }}/helm/helm.addon"
+  when: minishift_addons_community['helm']
+
+- name: Enable minishift community istio addon
+  command: "minishift addons enable {{ git_addons.git_dir_now }}/istio/istio.addon"
+  when: minishift_addons_community['istio']
+
+- name: Enable minishift community workshop addon
+  command: "minishift addons enable {{ git_addons.git_dir_now }}/workshop/workshop.addon"
+  when: minishift_addons_community['workshop']
 
 - name: Enable minishift community ansible-server-broker addon
   command: "minishift addons enable ansible-server-broker"

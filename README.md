@@ -33,6 +33,7 @@ After the role executes, and minishift is running, you will be able to access th
 - Prior to running the role, clear your terminal session of any DOCKER* environment variables.
 - sudo access is required for installing packages
 - git (if using community addons)
+- gnu tar (brew install gnu-tar)
 
 ### OSX
 
@@ -189,6 +190,7 @@ $ ansible-playbook -i inventory --ask-become-pass minishift-up.yml
 ## Dependencies
 
 git (if using community addons)
+gnu-tar (brew install gnu-tar)
 
 ## License
 

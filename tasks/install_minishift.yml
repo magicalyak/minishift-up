@@ -19,16 +19,10 @@
   register: temp_output
   changed_when: false
 
-#- name: Download the asset
-#  get_url:
-#    url: "{{ asset_url }}"
-#    dest: "{{ temp_output.path }}/{{ asset_name }}"
-
 - name: Unarchive the archive
   unarchive:
-#    src: "{{ temp_output.path }}/{{ asset_name }}"
     src: "{{ asset_url }}"
-    dest: "{{ temp_output.path }}/{{ asset_name | regex_replace('.zip','') | regex_replace('.tgz','') }}"
+    dest: "{{ temp_output.path }}"
     copy: no
 
 - name: Get the tgz dir name
