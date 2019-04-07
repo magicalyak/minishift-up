@@ -24,7 +24,7 @@
 
 - name: Install community addons
   include_tasks: install_addons_community.yml
-  when: 
+  when:
     - minishift_addons_community_enable
 
 # Lately seems to always end with a non-zero return code, even on success
