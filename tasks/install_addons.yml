@@ -1,67 +1,15 @@
-- name: debug addons
-  debug:
-    msg: "Variable is : {{ minishift_addons['anyuid'] }}"
+- name: Enable minishift default addons
+  command: minishift addons install --defaults
+  changed_when: false
 
-- name: "Install minishift {{item}} addon"
-  command: "minishift addons install {{ item }}"
-  when: minishift_addons['item']
+- name: "Enable minishift {{item}} addon"
+  command: "minishift addons enable {{ item }}"
+  when: "minishift_addons['item']"
   with_items:
     - anyuid
     - xpaas
     - che
     - prometheus
-
-- name: Install minishift anyuid addon
-  command: "minishift addons install anyuid"
-  when: minishift_addons['anyuid']
-
-- name: Install minishift xpaas addon
-  command: "minishift addons install xpaas"
-  when: minishift_addons['xpaas']
-
-- name: Install minishift che addon
-  command: "minishift addons install che"
-  when: minishift_addons['che']
-
-- name: Install minishift prometheus addon
-  command: "minishift addons install prometheus"
-  when: minishift_addons['prometheus']
-
-- name: Install minishift admin-user addon
-  command: "minishift addons install admin-user"
-  when: minishift_addons['admin_user']
-
-- name: Install minishift registry-route addon
-  command: "minishift addons install registry-route"
-  when: minishift_addons['registry_route']
-
-- name: Install minishift htpasswd-identity-provider addon
-  command: "minishift addons install htpasswd-identity-provider"
-  when: minishift_addons['htpasswd_identity_provider']
-
-- name: Install minishift admissions-webhook addon
-  command: "minishift addons install admissions-webhook"
-  when: minishift_addons['admissions_webhook']
-
-- name: Install minishift redhat-registry-logon addon
-  command: "minishift addons install redhat-registry-logon"
-  when: minishift_addons['redhat_registry_logon']
-
-- name: Enable minishift anyuid addon
-  command: "minishift addons enable anyuid"
-  when: minishift_addons['anyuid']
-
-- name: Enable minishift xpaas addon
-  command: "minishift addons enable xpaas"
-  when: minishift_addons['xpaas']
-
-- name: Enable minishift che addon
-  command: "minishift addons enable che"
-  when: minishift_addons['che']
-
-- name: Enable minishift prometheus addon
-  command: "minishift addons enable prometheus"
-  when: minishift_addons['prometheus']
 
 - name: Enable minishift admin-user addon
   command: "minishift addons enable admin-user"
