@@ -94,7 +94,7 @@ When the Minishift VM is started, the /Users volume will be mounted to the VM. T
 
 > Perform `minishift delete`, and remove `~/.minishift`. If you're upgrading, you most likely want to do this.
 
-**minishift_start_options: []**
+**minishift_start_options:** []
 
 > Provide a list of options to pass to `minishift start`. For example: `['--memory', '4GB', '--cpus', '4']`
 
