@@ -11,7 +11,7 @@
   when: not git_path.stat.exists
 
 - name: "Install minishift community {{item}} addon"
-  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/add-ons/{{ item }}"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/{{ item }}"
   when: "minishift_addons_community['{{ item }}']"
   with_items:
     - dotnet
@@ -22,15 +22,15 @@
     - workshop
 
 - name: Install minishift community ansible-service-broker addon
-  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/add-ons/ansible-service-broker"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/ansible-service-broker"
   when: minishift_addons_community['ansible_service_broker']
 
 - name: Install minishift community management-infra addon
-  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/add-ons/management-infra"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/management-infra"
   when: minishift_addons_community['management_infra']
 
 - name: Install minishift community eap-cd addon
-  command: "minishift addons install {{ minishift_addons_community_path }}/minishift-addons/add-ons/eap-cd"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/eap-cd"
   when: minishift_addons_community['eap_cd']
 
 - name: "Enable minishift community {{item}} addon"
