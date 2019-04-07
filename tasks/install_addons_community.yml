@@ -1,9 +1,14 @@
+- name: Check if minishift-addons git path exists"
+  stat:
+    path: "{{ minishift_addons_community_path }}/minishift-addons"
+  register: git_path
+
 - name: Clone community addons to community path
   git:
     repo: 'https://github.com/minishift/minishift-addons.git'
     dest: "{{ minishift_addons_community_path }}"
     version: master
-  register: git_addons
+  when: not git_path.stat.exists
 
 - name: Install minishift community dotnet addon
   command: "minishift addons install {{ git_addons.git_dir_now }}/dotnet/dotnet.addon"
