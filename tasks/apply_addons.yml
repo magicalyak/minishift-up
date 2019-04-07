@@ -1,5 +1,5 @@
 ---
-- name: "Apply minishift {{item}} addon"
+- name: "Apply minishift {{ item }} addon"
   command: "minishift addons apply {{ item }}"
   when: "minishift_addons['{{ item }}']"
   with_items:

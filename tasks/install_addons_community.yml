@@ -10,7 +10,7 @@
     version: master
   when: not git_path.stat.exists
 
-- name: "Install minishift community {{item}} addon"
+- name: "Install minishift community {{ item }} addon"
   command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/{{ item }} --enable"
   when: "minishift_addons_community['{{ item }}']"
   with_items:

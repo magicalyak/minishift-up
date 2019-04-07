@@ -2,7 +2,7 @@
   command: minishift addons install --defaults
   changed_when: false
 
-- name: "Enable minishift {{item}} addon"
+- name: "Enable minishift {{ item }} addon"
   command: "minishift addons enable {{ item }}"
   when: "minishift_addons['{{ item }}']"
   with_items:
