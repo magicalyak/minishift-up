@@ -36,7 +36,7 @@
   get_url:
     url: https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-hyperkit
     dest: /usr/local/bin/docker-machine-driver-hyperkit
-    mode: 4755
+    mode: "u+s"
     owner: root
     group: wheel
   when:
