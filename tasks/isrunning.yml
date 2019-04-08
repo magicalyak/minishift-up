@@ -19,6 +19,11 @@
   when: "'Running' in minishift_state.stdout"
   changed_when: false
 
+- name: Remove minishift system tray
+  command: minishift service stop systemtray
+  when: "'Running' in minishift_state.stdout"
+  changed_when: false
+
 - name: Deleting minishift
   command: minishift delete --force
   when: minishift_delete
