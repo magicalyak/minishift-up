@@ -28,7 +28,7 @@
 
 - name: Remove ~/.minishift
   file:
-    path: ~/.minishift
+    path: $HOME/.minishift
     state: absent
   when: minishift_delete
   become: yes
