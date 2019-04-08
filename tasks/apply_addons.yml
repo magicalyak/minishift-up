@@ -33,7 +33,7 @@
 
 #Community Addons
 - name: Enable minishift grafana addon
-  command: "minishft addons enable grafana"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/grafana --enable"
   when: minishift_addons_community['grafana']
 
 - name: Apply minishift grafana addon
@@ -41,7 +41,7 @@
   when: minishift_addons_community['grafana']
 
 - name: Enable minishift prometheus addon
-  command: "minishft addons enable prometheus"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/prometheus"
   when: minishift_addons_community['prometheus']
 
 - name: Apply minishift prometheus addon
