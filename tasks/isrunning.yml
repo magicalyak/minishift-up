@@ -30,3 +30,10 @@
   ignore_errors: yes
   become: yes
   changed_when: false
+
+- name: Remove ~/.minishift
+  file:
+    path: ~/.minishift
+    state: absent
+  when: minishift_delete
+  become: yes
