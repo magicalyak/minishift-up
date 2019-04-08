@@ -32,7 +32,6 @@
         xpaas: no
         redhat_registry_logon: no
         che: no
-        prometheus: no
         admin_user: yes
       minishift_addons_community_enable: no
       minishift_addons_community_path: $HOME/Downloads/git
@@ -46,3 +45,4 @@
         management_infra: no
         workshop: no
         eap_cd: no
+        prometheus: no
