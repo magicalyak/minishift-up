@@ -2,30 +2,34 @@
   command: minishift addons install --defaults
   changed_when: false
 
-- name: "Enable minishift {{ item }} addon"
-  command: "minishift addons enable {{ item }}"
-  when: minishift_addons.item is defined
-  with_items:
-    - anyuid
-    - xpaas
-    - che
-
 - name: Enable minishift admin-user addon
   command: "minishift addons enable admin-user"
   when: minishift_addons['admin_user']
-
-- name: Enable minishift registry-route addon
-  command: "minishift addons enable registry-route"
-  when: minishift_addons['registry_route']
-
-- name: Enable minishift htpasswd-identity-provider addon
-  command: "minishift addons enable htpasswd-identity-provider"
-  when: minishift_addons['htpasswd_identity_provider']
 
 - name: Enable minishift admissions-webhook addon
   command: "minishift addons enable admissions-webhook"
   when: minishift_addons['admissions_webhook']
 
+- name: Enable minishift anyuid addon
+  command: "minishift addons enable anyuid"
+  when: minishift_addons['anyuid']
+
+- name: Enable minishift che addon
+  command: "minishift addons enable che"
+  when: minishift_addons['che']
+
+- name: Enable minishift htpasswd-identity-provider addon
+  command: "minishift addons enable htpasswd-identity-provider"
+  when: minishift_addons['htpasswd_identity_provider']
+
 - name: Enable minishift redhat-registry-logon addon
   command: "minishift addons enable redhat-registry-logon"
   when: minishift_addons['redhat_registry_logon']
+
+- name: Enable minishift registry-route addon
+  command: "minishift addons enable registry-route"
+  when: minishift_addons['registry_route']
+
+- name: Enable minishift xpaas addon
+  command: "minishift addons enable xpaas"
+  when: minishift_addons['xpaas']

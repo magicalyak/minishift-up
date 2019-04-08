@@ -10,26 +10,42 @@
     version: master
   when: not git_path.stat.exists
 
-- name: "Install minishift community {{ item }} addon"
-  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/{{ item }} --enable"
-  when: minishift_addons_community.item is defined
-  with_items:
-    - dotnet
-    - example
-    - grafana
-    - helm
-    - istio
-    - workshop
-    - prometheus
-
 - name: Install minishift community ansible-service-broker addon
   command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/ansible-service-broker --enable"
   when: minishift_addons_community['ansible_service_broker']
+
+- name: Install minishift community dotnet addon
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/dotnet --enable"
+  when: minishift_addons_community['dotnet']
+
+- name: Install minishift community eap-cd addon
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/eap-cd --enable"
+  when: minishift_addons_community['eap_cd']
+
+- name: Install minishift community example addon
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/example --enable"
+  when: minishift_addons_community['example']
+
+- name: Install minishift community grafana addon
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/grafana --enable"
+  when: minishift_addons_community['grafana']
+
+- name: Install minishift community helm addon
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/helm --enable"
+  when: minishift_addons_community['helm']
+
+- name: Install minishift community istio addon
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/istio --enable"
+  when: minishift_addons_community['istio']
 
 - name: Install minishift community management-infra addon
   command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/management-infra --enable"
   when: minishift_addons_community['management_infra']
 
-- name: Install minishift community eap-cd addon
-  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/eap-cd --enable"
-  when: minishift_addons_community['eap_cd']
+- name: Install minishift community prometheus addon
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/prometheus --enable"
+  when: minishift_addons_community['prometheus']
+
+- name: Install minishift community workshop addon
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/workshop --enable"
+  when: minishift_addons_community['workshop']
