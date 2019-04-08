@@ -25,15 +25,14 @@
   changed_when: false
 
 - name: Deleting minishift
-  command: minishift delete --force
+  command: minishift delete --force --clear-cache
   when: minishift_delete
   ignore_errors: yes
   become: yes
   changed_when: false
 
-- name: Remove ~/.minishift
+- name: Remove minishift directory
   file:
-    path: $HOME/.minishift
+    path: "{{ ansible_env.HOME }}/.minishift"
     state: absent
   when: minishift_delete
-  become: yes

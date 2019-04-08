@@ -45,11 +45,6 @@
   register: minishift_out
   changed_when: false
 
-- name: Cleanup output file
-  file:
-    path: /tmp/minishift.out
-    state: absent
-
 - name: Check if oc binary exists
   stat:
     path: "{{ openshift_client_dest }}/oc"
