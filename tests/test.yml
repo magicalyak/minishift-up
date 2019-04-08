@@ -22,6 +22,7 @@
       openshift_repo: openshift/origin
       openshift_client_dest: /usr/local/bin
       openshift_force_client_install: no
+      minishift_experimental: no
       use_hyperkit: yes
       minishift_addons_enable: no
       minishift_addons:

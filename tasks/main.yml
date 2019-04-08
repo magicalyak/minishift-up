@@ -33,6 +33,13 @@
   when:
     - minishift_addons_community_enable
 
+- name: Enable experimental features
+  shell: "export MINISHIFT_ENABLE_EXPERIMENTAL=y"
+  args:
+    executable: /bin/bash
+  changed_when: false
+  when: minishift_experimental | default()
+
 # Lately seems to always end with a non-zero return code, even on success
 - name: Run minishift
   shell: "set -o pipefail && true | minishift start {{ minishift_start_options | join(' ') }} >/tmp/minishift.out 2>&1"

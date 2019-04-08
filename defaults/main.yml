@@ -10,6 +10,7 @@ minishift_dest: /usr/local/bin
 openshift_client_dest: /usr/local/bin
 openshift_force_client_copy: yes
 
+minishift_experimental: no
 # For MacOSX we can try to use hyperkit instead
 use_hyperkit: no
 
