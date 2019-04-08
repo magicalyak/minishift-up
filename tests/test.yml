@@ -23,6 +23,7 @@
       openshift_client_dest: /usr/local/bin
       openshift_force_client_install: no
       minishift_experimental: no
+      minishift_service_catalog: no  
       use_hyperkit: yes
       minishift_addons_enable: no
       minishift_addons:

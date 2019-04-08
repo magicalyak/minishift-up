@@ -107,6 +107,14 @@ When the Minishift VM is started, the /Users volume will be mounted to the VM. T
 
 > Overwrite any existing OpenShift client binary found at {{ openshift_client_dest }}.
 
+**minishift_experimental:** no
+
+> Enable experimental features
+
+**minishift_service_catalog:** no
+
+> Enable service catalog component
+
 **use_hyperkit:** no
 
 > For MaxOSX you can "try to" use hyperkit instad of xhyve by setting this to yes
@@ -151,6 +159,7 @@ Below is a sample playbook that includes all of the default parameters. You'll f
       openshift_client_dest: /usr/local/bin
       openshift_force_client_copy: yes
       minishift_experimental: no
+      minishift_service_catalog: no
       use_hyperkit: yes
       minishift_addons_enable: no
       minishift_addons:

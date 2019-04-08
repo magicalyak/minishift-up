@@ -11,3 +11,4 @@
 ansible-lint.txt
 inventory
 test.local.yml
+*.swp

@@ -33,6 +33,11 @@
   when:
     - minishift_addons_community_enable
 
+- name: Install service catalog component
+  command: minishift openshift component add service-catalog
+  when: minishift_service_catalog | default()
+  changed_when: false
+
 - name: Enable experimental features
   shell: "export MINISHIFT_ENABLE_EXPERIMENTAL=y"
   args:
