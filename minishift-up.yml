@@ -15,10 +15,10 @@
       minishift_start_options: ['--memory', '8GB', '--cpus', '2']
       openshift_client_dest: /usr/local/bin
       openshift_force_client_copy: yes
-      minishift_experimental: yes
-      minishift_service_catalog: yes
+      minishift_experimental: no
+      minishift_service_catalog: no
       use_hyperkit: yes
-      minishift_addons_enable: yes
+      minishift_addons_enable: no
       minishift_addons:
         anyuid: no
         registry_route: no
