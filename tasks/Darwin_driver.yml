@@ -3,14 +3,14 @@
 - name: Install docker-machine-driver-xhyve
   homebrew:
     name: docker-machine-driver-xhyve
-    state: head
+    state: present
   when:
     - not use_hyperkit
 
 - name: Install docker-machine-driver-hyperkit
   homebrew:
     name: hyperkit
-    state: latest
+    state: present
   when:
     - use_hyperkit
 
