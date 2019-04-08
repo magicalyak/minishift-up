@@ -26,3 +26,9 @@
 - name: Apply minishift redhat-registry-logon addon
   command: "minishift addons apply --addon-env REGISTRY_USERNAME={{ minishift_redhat_login }} --addon-env REGISTRY_PASSWORD={{ minishift_redhat_password }} redhat-registry-logon"
   when: minishift_addons['redhat_registry_logon']
+
+#Community Addons
+- name: Apply prometheus addon
+  command: "minishift addons apply prometheus --addon-env namespace=kube-system"
+  when: minishift_community_addons['prometheus']
+

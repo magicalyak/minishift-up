@@ -9,7 +9,6 @@
     - anyuid
     - xpaas
     - che
-    - prometheus
 
 - name: Enable minishift admin-user addon
   command: "minishift addons enable admin-user"
