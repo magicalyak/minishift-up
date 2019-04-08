@@ -32,9 +32,17 @@
   when: minishift_addons['xpaas']
 
 #Community Addons
+- name: Enable minishift grafana addon
+  command: "minishft addons enable grafana"
+  when: minishift_addons_community['grafana']
+
 - name: Apply minishift grafana addon
   command: "minishift addons apply grafana --addon-env namespace=grafana"
   when: minishift_addons_community['grafana']
+
+- name: Enable minishift prometheus addon
+  command: "minishft addons enable prometheus"
+  when: minishift_addons_community['prometheus']
 
 - name: Apply minishift prometheus addon
   command: "minishift addons apply prometheus --addon-env namespace=kube-system"

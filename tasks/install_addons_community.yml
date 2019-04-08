@@ -27,7 +27,7 @@
   when: minishift_addons_community['example']
 
 - name: Install minishift community grafana addon
-  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/grafana --enable"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/grafana"
   when: minishift_addons_community['grafana']
 
 - name: Install minishift community helm addon
@@ -43,7 +43,7 @@
   when: minishift_addons_community['management_infra']
 
 - name: Install minishift community prometheus addon
-  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/prometheus --enable"
+  command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/prometheus"
   when: minishift_addons_community['prometheus']
 
 - name: Install minishift community workshop addon
