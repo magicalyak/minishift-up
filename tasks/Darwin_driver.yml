@@ -28,7 +28,7 @@
     group: wheel
     mode: "u+s"
   when:
-    - not use_hyperkit"
+    - not use_hyperkit
 
 - name: Install docker-machine-driver-hyperkit binary
   become: yes
