@@ -1,7 +1,7 @@
 ---
 - name: "Apply minishift {{ item }} addon"
   command: "minishift addons apply {{ item }}"
-  when: "minishift_addons[item['name'] is defined]"
+  when: minishift_addons.item is defined
   with_items:
     - anyuid
     - xpaas
