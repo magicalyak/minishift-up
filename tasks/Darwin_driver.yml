@@ -1,43 +1,23 @@
 # Darwin_driver.yml 
-
-- name: Check if docker-machine-driver-xhyve is installed
-  command: brew info --installed docker-machine-driver-xhyve --json
-  register: output
-  changed_when: False
-
+# Using head because it will fail with virtualbox 6 installed https://github.com/minishift/minishift/issues/3143
 - name: Install docker-machine-driver-xhyve
   homebrew:
     name: docker-machine-driver-xhyve
-    state: present
+    state: head
   when:
-    - "'Not installed' in output.stdout"
     - not use_hyperkit
 
 - name: Install docker-machine-driver-hyperkit
   homebrew:
     name: hyperkit
-    state: present
+    state: latest
   when:
-    - "'Not installed' in output.stdout"
     - use_hyperkit
 
 - name: Get brew prefix
   command: brew --prefix
   register: prefix
   changed_when: False
-
-- name: Install docker-machine-driver-hyperkit binary
-  become: yes
-  become_user: root
-  get_url:
-    url: https://github.com/machine-drivers/docker-machine-driver-hyperkit/releases/download/v1.0.0/docker-machine-driver-hyperkit
-    dest: /usr/local/bin/docker-machine-driver-hyperkit
-    mode: 0755
-    owner: root
-    group: wheel
-  when:
-    - "'Not installed' in output.stdout"
-    - use_hyperkit
 
 - name: Set owner and permissions for docker-machine-driver-xyhve
   become: yes
@@ -48,5 +28,16 @@
     group: wheel
     mode: "u+s"
   when:
-    - "'Not installed' in output.stdout"
     - not use_hyperkit"
+
+- name: Install docker-machine-driver-hyperkit binary
+  become: yes
+  become_user: root
+  get_url:
+    url: https://storage.googleapis.com/minikube/releases/latest/docker-machine-driver-hyperkit
+    dest: /usr/local/bin/docker-machine-driver-hyperkit
+    mode: 4755
+    owner: root
+    group: wheel
+  when:
+    - use_hyperkit

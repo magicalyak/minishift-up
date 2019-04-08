@@ -150,7 +150,7 @@ Below is a sample playbook that includes all of the default parameters. You'll f
       minishift_start_options: []
       openshift_client_dest: /usr/local/bin
       openshift_force_client_copy: yes
-      use_hyperkit: no
+      use_hyperkit: yes
       minishift_addons_enable: no
       minishift_addons:
       minishift_addons:
