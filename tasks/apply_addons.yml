@@ -32,4 +32,3 @@
 - name: Apply prometheus addon
   command: "minishift addons apply prometheus --addon-env namespace=kube-system"
   when: minishift_community_addons['prometheus']
-
