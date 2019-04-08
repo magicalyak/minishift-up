@@ -2,48 +2,60 @@
 - name: Apply minishift admin-user addon
   command: "minishift addons apply admin-user"
   when: minishift_addons['admin_user']
+  ignore_errors: true
 
 - name: Apply minishift admissions-webhook addon
   command: "minishift addons apply admissions-webhook"
   when: minishift_addons['admissions_webhook']
+  ignore_errors: true
 
 - name: Apply minishift anyuid addon
   command: "minishift addons apply anyuid"
   when: minishift_addons['anyuid']
+  ignore_errors: true
 
 - name: Apply minishift che addon
   command: "minishift addons apply che"
   when: minishift_addons['che']
+  ignore_errors: true
 
 - name: Apply minishift htpasswd-identity-provider addon
   command: "minishift addons apply htpasswd-identity-provider"
   when: minishift_addons['htpasswd_identity_provider']
+  ignore_errors: true
 
 - name: Apply minishift redhat-registry-logon addon
   command: "minishift addons apply --addon-env REGISTRY_USERNAME={{ minishift_redhat_login }} --addon-env REGISTRY_PASSWORD={{ minishift_redhat_password }} redhat-registry-logon"
   when: minishift_addons['redhat_registry_logon']
+  ignore_errors: true
 
 - name: Apply minishift registry-route addon
   command: "minishift addons apply registry-route"
   when: minishift_addons['registry_route']
+  ignore_errors: true
 
 - name: Apply minishift xpaas addon
   command: "minishift addons apply xpaas"
   when: minishift_addons['xpaas']
+  ignore_errors: true
 
 #Community Addons
 - name: Enable minishift grafana addon
   command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/grafana --enable"
   when: minishift_addons_community['grafana']
+  ignore_errors: true
 
 - name: Apply minishift grafana addon
   command: "minishift addons apply grafana --addon-env namespace=grafana"
   when: minishift_addons_community['grafana']
+  ignore_errors: true
 
 - name: Enable minishift prometheus addon
   command: "minishift addons install -f {{ minishift_addons_community_path }}/minishift-addons/add-ons/prometheus"
   when: minishift_addons_community['prometheus']
+  ignore_errors: true
 
 - name: Apply minishift prometheus addon
   command: "minishift addons apply prometheus --addon-env namespace=kube-system"
   when: minishift_addons_community['prometheus']
+  ignore_errors: true

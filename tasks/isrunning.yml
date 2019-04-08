@@ -21,7 +21,7 @@
 
 - name: Remove minishift system tray
   command: minishift service stop systemtray
-  when: "'Running' in minishift_state.stdout"
+  ignore_errors: yes
   changed_when: false
 
 - name: Deleting minishift
